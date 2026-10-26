@@ -35,6 +35,29 @@ h1,h2,p{margin-top:0}h1,h2{font-family:var(--serif);font-weight:500;line-height:
 @media(max-width:650px){.site-header{padding:22px 4%}.nav{gap:14px;justify-content:center}.nav a{font-size:9px}.hero{grid-template-columns:1fr}.hero-copy{padding:70px 7% 58px}.hero-photo{min-height:440px;max-height:550px}.intro{padding:68px 7%}.photo-grid{columns:2;column-gap:13px;padding-bottom:65px}.gallery-item{margin-bottom:23px}.closing{padding:70px 6%}.lightbox-image{max-width:calc(100vw - 35px);max-height:calc(100vh - 130px)}.lb-prev,.lb-next{top:auto;bottom:20px}}
 @media(max-width:400px){.nav{gap:10px}.hero h1{font-size:4.1rem}.photo-grid{columns:1}footer{justify-content:center;text-align:center}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* PALMA 2026-10-25 — Fix oversized heading clipping into portrait. */
+.hero { grid-template-columns: minmax(0,48%) minmax(0,52%); }
+.hero-copy {
+  min-width: 0;
+  padding: 70px clamp(26px,4vw,72px);
+}
+.hero h1 {
+  max-width: 100%;
+  font-size: clamp(3rem,4.8vw,5.5rem);
+  line-height: 1.06;
+  letter-spacing: -.035em;
+}
+@media (max-width: 950px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-copy { padding: 65px 7% 50px; }
+  .hero-photo { min-height: 420px; max-height: 600px; }
+}
+@media (max-width: 650px) {
+  .hero h1 { font-size: clamp(2.25rem,9.5vw,3.7rem); }
+  .hero-photo { min-height: 410px; max-height: 540px; }
+}
+
 </style>
 </head>
 <body>
